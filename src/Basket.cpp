@@ -35,7 +35,28 @@ void Basket::list() {
 }
 
 void Basket::remove() {
+    auto p = getConsolePair();
+    auto f = basket.find(p.first);
 
+    if (f == basket.end()) {
+        // товара с таким артикулом в корзине нет, выводим сообщение
+        cout << "\tТовар с таким артикулом в корзине отсутствует\n";
+    } else {
+        // товар с таким артикулом найден, проверяем количество
+        if (p.second > f->second) {
+            const string ex = "\nException :: недостаточное количество товара в корзине. Операция прервана.\n";
+            throw invalid_argument(ex);
+        } else {
+            // уменьшаем количество товара по заданному артикулу в корзине
+            f->second -= p.second;
+            cout << "\tТекущее количество товара в корзине = " << f->second << endl;
+            // если количество товара стало = 0, удаляем товар из корзины совсем
+            if (f->second == 0) {
+                basket.erase(f);
+                cout << "\tТовар удален из корзины.\n";
+            }
+        }
+    }
 
 }
 

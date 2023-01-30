@@ -3,7 +3,8 @@
 
 class Basket {
 private:
-    std::map<std::string, int> basket{}; // key = vendor code, value = product amount
+    // key = vendor code, value = product amount
+    std::map<std::string, int> basket {{"A101",2},{"A102",4}}; // изначально в корзине
 
 public:
     Basket() = default;
@@ -12,6 +13,5 @@ public:
     void remove();
     void list();
     static std::pair<std::string, int> getConsolePair();
-
 
 };
