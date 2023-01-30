@@ -37,7 +37,7 @@ void setlocale1251() {
     SetConsoleOutputCP(1251);
 }
 
-int irandom_next(int from, int to) {
+int random_nextInt(int from, int to) {
 
     std::random_device rd;
     std::mt19937 gen(rd());
