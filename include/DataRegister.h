@@ -76,12 +76,12 @@ template<typename Tk, typename Tv>
 void DataRegister<Tk, Tv>::list() {
 
     if (!data.empty()) {
-        int i = 1;
+        int i = 0;
         std::cout << "\nСодержание реестра:\n";
         for (std::pair<Tk, Tv> p: data) {
-            std::cout << "\t№" << i++ << ". ключ: " << p.first << " :: значение = " << p.second << std::endl;
+            std::cout << "\t№" << ++i << ". ключ: " << p.first << " :: значение = " << p.second << std::endl;
         }
     } else {
-        std::cout << "\nРеестр пустой, записей нет.\n";
+        std::cout << "\n\tРеестр пустой, записей нет.\n";
     }
 }

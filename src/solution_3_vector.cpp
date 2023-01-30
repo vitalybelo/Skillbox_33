@@ -3,9 +3,11 @@
 #include "DataRegister.h"
 using namespace std;
 
-void solution_3() {
+void solution_3_vector() {
 
     cout << "\n********************** Решение №3 *********************";
+    cout << "\n:  реализовано с помощью VECTOR                       :";
+    cout << "\n:                                                     :";
     cout << "\n:  доступные команды:                                 :";
     cout << "\n:  add: добавить запись                               :";
     cout << "\n:  print: список всех записей реестра (list)          :";
