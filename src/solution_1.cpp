@@ -39,5 +39,4 @@ void solution_1() {
         }
     } while(command != "exit");
 
-
 }
