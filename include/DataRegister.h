@@ -24,17 +24,17 @@ void DataRegister<Tk, Tv>::remove() {
     std::cout << "\tВведите значение ключа: ";
     std::cin >> key;
 
-    int result = 0;
+    int found_records = 0;
     typename std::vector<std::pair<Tk, Tv>>::iterator iter = data.begin();
     while(iter != data.end()) {
         if (iter->first == key) {
             data.erase(iter);
-            ++result;
+            ++found_records;
         } else {
             ++iter;
         }
     }
-    std::cout << "\t\tКоличество найденных и удаленных записей = " << result << std::endl;
+    std::cout << "\t\tКоличество найденных и удаленных записей = " << found_records << std::endl;
 
 }
 
