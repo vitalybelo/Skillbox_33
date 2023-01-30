@@ -35,7 +35,6 @@ void DataRegister<Tk, Tv>::remove() {
         }
     }
     std::cout << "\t\tКоличество найденных и удаленных записей = " << found_records << std::endl;
-
 }
 
 template<typename Tk, typename Tv>
