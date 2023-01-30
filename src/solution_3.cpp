@@ -14,7 +14,7 @@ void solution_3() {
     cout << "\n:  exit: выход                                        :";
     cout << "\n*******************************************************\n";
 
-    DataRegister<int, int> data;
+    DataRegister<int, string> data;
 
     string command;
     do {
