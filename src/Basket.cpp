@@ -3,7 +3,6 @@
 
 using namespace std;
 
-
 void Basket::add() {
     auto p = getConsolePair();
     auto f = basket.find(p.first);
@@ -44,8 +43,7 @@ void Basket::remove() {
     } else {
         // товар с таким артикулом найден, проверяем количество
         if (p.second > f->second) {
-            const string ex = "\nException :: недостаточное количество товара в корзине. Операция прервана.\n";
-            throw invalid_argument(ex);
+            throw range_error("\nException :: недостаточное количество товара в корзине. Операция прервана.\n");
         } else {
             // уменьшаем количество товара по заданному артикулу в корзине
             f->second -= p.second;

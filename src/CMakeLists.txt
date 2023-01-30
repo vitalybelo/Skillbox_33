@@ -4,6 +4,7 @@ add_executable(Skillbox_33
         main.cpp
         use_lib.cpp
         solution_1.cpp
-        Basket.cpp)
+        solution_2.cpp
+        Basket.cpp solution_2.cpp)
 
 target_include_directories(Skillbox_33 PUBLIC ${INCLUDE_DIR})

@@ -35,6 +35,8 @@ void solution_1() {
                 basket.remove();
             } catch (const invalid_argument & e) {
                 cout << e.what();
+            } catch (const range_error & o) {
+                cout << o.what();
             }
         }
     } while(command != "exit");
