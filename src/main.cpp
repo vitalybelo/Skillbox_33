@@ -1,15 +1,12 @@
-#include <iostream>
-#include "windows.h"
+#include "use_lib.h"
+#include "solutions.h"
 
 using namespace std;
 
 int main() {
-    SetConsoleCP(CP_UTF8);
-    SetConsoleOutputCP(CP_UTF8);
+    setlocaleUTF8();
 
-
-    std::cout << "Приветик!" << std::endl;
-
+    solution_1();
 
     return 0;
 }
