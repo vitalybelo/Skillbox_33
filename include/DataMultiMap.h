@@ -62,7 +62,6 @@ void DataMultiMap<T_key, T_value>::find() {
     }
     if (!found_flag)
         std::cout << "\t\tПо значению ключа ничего найдено:\n";
-
 }
 
 template<typename T_key, typename T_value>
