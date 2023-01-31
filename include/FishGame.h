@@ -17,7 +17,7 @@ public:
 class BootFoundException : public std::exception {
 public:
     [[nodiscard]] const char * what() const noexcept override {
-        return "\nСАПОГ ваш улов. GAME OVER\n";
+        return "\nВам достался САПОГ. GAME OVER\n";
     }
 };
 

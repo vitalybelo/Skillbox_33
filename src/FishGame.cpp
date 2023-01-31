@@ -7,14 +7,11 @@ void displayField(GameField* field) {
     cout << "GAME FIELD: [";
     for (int i = 0; i < FIELD_SIZE; ++i) {
         char a = '.';
-        if (field[i].fish) {
-            a = 'F';
-        } else if (field[i].boot) {
-            a = 'B';
-        }
+        if (field[i].fish) a = 'F';
+        else if (field[i].boot) a = 'B';
         cout << a;
     }
-    cout << "]\n\n";
+    cout << "]\n";
 }
 
 void distributeField(GameField* field) {
@@ -23,11 +20,10 @@ void distributeField(GameField* field) {
     std::mt19937 gen(rd());
     std::uniform_int_distribution<> dist(0, FIELD_SIZE - 1);
 
-    int boot_locator = 0;
     field[dist(gen)].fish = true; // селим рыбу в пруд
 
     // туда же кидаем еще 3 сапога
-    while (boot_locator < 3) {
+    for (int boot_locator = 0; boot_locator < 3;) {
         int i = dist(gen);
         if (!field[i].fish && !field[i].boot) {
             field[i].boot = true;
@@ -44,11 +40,12 @@ void playGame(GameField* field) {
         cout << "\nВведите номер сектора: ";
         cin >> i;
         if (i < 0 || i > FIELD_SIZE - 1) {
+            // не будем бросать исключение, ситуация штатная, просто повторим ввод
             cout << "\tВнимание: значение номера сектора должно быть от 0 до " << FIELD_SIZE - 1 << endl;
             continue;
         } else if (field[i].fish) {
             throw FishFoundException();
-        } else  if (field[i].boot) {
+        } else if (field[i].boot) {
             throw BootFoundException();
         }
         cout << "\tПусто, давайте попробуем еще раз\n";

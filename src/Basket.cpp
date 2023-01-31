@@ -3,6 +3,8 @@
 
 using namespace std;
 
+Basket::Basket(const map<std::string, int> &basket) : basket(basket) {}
+
 void Basket::add() {
     auto p = getConsolePair();
     auto f = basket.find(p.first);
@@ -14,7 +16,7 @@ void Basket::add() {
     } else {
         // товар с таким артикулом уже есть в корзине, добавляем количество
         f->second += p.second;
-        p.second = f->second;
+        p.second = f->second; // изменяем значение только для вывода в консоль
         cout << "\tИзменено количество товара :: ";
     }
     cout << "артикул: " << p.first << ", количество = " << p.second << endl;
@@ -22,12 +24,9 @@ void Basket::add() {
 
 void Basket::list() {
     if (!basket.empty()) {
-        cout << "\nКорзина:\n";
-        auto iter = basket.begin();
-        while (iter != basket.end()) {
-            cout << "Артикул: " << iter->first << "\t:: количество = " << iter->second << endl;
-            ++iter;
-        }
+        cout << "\nСостав корзины:\n";
+        for (auto & item : basket)
+            cout << "Артикул: " << item.first << "\t:: количество = " << item.second << endl;
     } else {
         cout << "\nКорзина пустая.\n";
     }
@@ -38,7 +37,7 @@ void Basket::remove() {
     auto f = basket.find(p.first);
 
     if (f == basket.end()) {
-        // товара с таким артикулом в корзине нет, выводим сообщение
+        // товара с таким артикулом в корзине нет, выводим сообщение, noexcept выход
         cout << "\tТовар с таким артикулом в корзине отсутствует\n";
     } else {
         // товар с таким артикулом найден, проверяем количество
@@ -77,3 +76,4 @@ pair<string, int> Basket::getConsolePair() {
 
     return p;
 }
+

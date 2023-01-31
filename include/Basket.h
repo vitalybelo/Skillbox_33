@@ -4,10 +4,11 @@
 class Basket {
 private:
     // key = vendor code, value = product amount
-    std::map<std::string, int> basket {{"A101",2},{"A102",4}}; // изначально в корзине
+    std::map<std::string, int> basket;
 
 public:
     Basket() = default;
+    explicit Basket(const std::map<std::string, int> &basket);
 
     void add();
     void remove();

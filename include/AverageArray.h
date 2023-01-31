@@ -10,7 +10,9 @@ private:
 public:
     AverageArray() = default;
     explicit AverageArray(size_t size) : size(size) {}
-    AverageArray(const std::vector<T> &list, size_t size) : list(list), size(size) {}
+    explicit AverageArray(const std::vector<T> &list) : list(list) {
+        size = list.size();
+    }
     virtual ~AverageArray() {
         list.clear();
     }

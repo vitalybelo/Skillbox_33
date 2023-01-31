@@ -2,7 +2,6 @@
 #include "FishGame.h"
 using namespace std;
 
-
 void solution_2() {
 
     cout << "\n********************** Решение №2 *********************\n";
@@ -11,7 +10,7 @@ void solution_2() {
     distributeField(field);         // заселяем поле рыбкой и сапогами
     displayField(field);            // выводим игровое поле
 
-    try {
+    try {                           // играем и заканчиваем блоками catch
         playGame(field);
     } catch(const FishFoundException & f) {
         cerr << f.what();
