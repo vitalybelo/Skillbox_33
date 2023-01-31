@@ -28,7 +28,7 @@ int main() {
     //*******************************************************
     //solution_3_vector();
 
-    //solution_3_multimap();
+    solution_3_multimap();
 
 
 

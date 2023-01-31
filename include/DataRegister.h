@@ -18,6 +18,18 @@ public:
 };
 
 template<typename Tk, typename Tv>
+void DataRegister<Tk, Tv>::add() {
+
+    std::pair<Tk, Tv> p;
+    std::cout << "\tВведите значение ключа: ";
+    std::cin >> p.first;
+    std::cout << "\tВведите значение для этого ключа: ";
+    std::cin >> p.second;
+
+    data.push_back(p);
+}
+
+template<typename Tk, typename Tv>
 void DataRegister<Tk, Tv>::remove() {
 
     Tk key;
@@ -45,31 +57,14 @@ void DataRegister<Tk, Tv>::find() {
     std::cin >> key;
 
     int i = 1;
-    bool found_flag = false;
-    std::cout << "\n\tДля ключа: (" << key;
+    int found_records = 0;
     for(std::pair<Tk, Tv> p : data) {
         if (p.first == key) {
-            if (!found_flag) {
-                found_flag = true;
-                std::cout << ") найдено в реестре:\n";
-            }
+            ++found_records;
             std::cout << "\t\t№" << i++ << ". ключ: " << p.first << " :: значение = " << p.second << std::endl;
         }
     }
-    if (!found_flag)
-        std::cout << ") ничего не найдено в реестре:\n";
-}
-
-template<typename Tk, typename Tv>
-void DataRegister<Tk, Tv>::add() {
-
-    std::pair<Tk, Tv> p;
-    std::cout << "\tВведите значение ключа: ";
-    std::cin >> p.first;
-    std::cout << "\tВведите значение для этого ключа: ";
-    std::cin >> p.second;
-
-    data.push_back(p);
+    std::cout << "\t\tКоличество найденных записей в реестре = " << found_records << std::endl;;
 }
 
 template<typename Tk, typename Tv>

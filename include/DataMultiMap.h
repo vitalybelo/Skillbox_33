@@ -48,20 +48,13 @@ void DataMultiMap<T_key, T_value>::find() {
     std::cout << "\tВведите значение ключа: ";
     std::cin >> key;
 
-    typename std::multimap<T_key, T_value>::iterator it;
-    typename std::multimap<T_key, T_value>::iterator it_beg = data.lower_bound(key);
+    typename std::multimap<T_key, T_value>::iterator it = data.lower_bound(key);
     typename std::multimap<T_key, T_value>::iterator it_end = data.upper_bound(key);
-    int i = 0;
-    bool found_flag = false;
-    for(it = it_beg; it != it_end; ++it) {
-        if (!found_flag) {
-            found_flag = true;
-            std::cout << "\tПо значению ключа найдено:\n";
-        }
-        std::cout << "\t\t№" << ++i << ". ключ: " << it->first << " :: значение = " << it->second << std::endl;
-    }
-    if (!found_flag)
-        std::cout << "\t\tПо значению ключа ничего найдено:\n";
+
+    for(int i = 1; it != it_end; ++it, ++i)
+        std::cout << "\t\t№" << i << ". ключ: " << it->first << " :: значение = " << it->second << std::endl;
+
+    std::cout << "\t\tКоличество найденных записей в реестре = " << data.count(key) << std::endl;
 }
 
 template<typename T_key, typename T_value>
@@ -71,10 +64,6 @@ void DataMultiMap<T_key, T_value>::remove() {
     std::cout << "\tВведите значение ключа: ";
     std::cin >> key;
 
-    int found_records = (int)data.count(key);
-    for(int i = 0; i < found_records; i++)
-        data.erase(data.find(key));
-
+    auto found_records = data.erase(key);
     std::cout << "\t\tКоличество найденных и удаленных записей = " << found_records << std::endl;
-
 }
