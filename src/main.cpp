@@ -27,10 +27,9 @@ int main() {
     // задание выполнено через vector<pair<T_key,T_value>>
     //*******************************************************
     //solution_3_vector();
+    //solution_3_multimap();
 
-    solution_3_multimap();
-
-
+    solution_4();
 
     return 0;
 }

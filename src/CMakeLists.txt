@@ -9,6 +9,7 @@ add_executable(Skillbox_33
         solution_2.cpp
         solution_3_vector.cpp
         solution_3_multimap.cpp
+        solution_4.cpp
         )
 
 target_include_directories(Skillbox_33 PUBLIC ${INCLUDE_DIR})
