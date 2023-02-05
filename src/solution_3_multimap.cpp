@@ -9,9 +9,9 @@ void solution_3_multimap() {
     cout << "\n:  реализовано с помощью MULTIMAP                     :";
     cout << "\n:                                                     :";
     cout << "\n:  доступные команды:                                 :";
-    cout << "\n:  add: добавить запись                               :";
-    cout << "\n:  print: список всех записей реестра (list)          :";
-    cout << "\n:  remove: удаление всех записей с заданным ключом    :";
+    cout << "\n:  addBasket: добавить запись                               :";
+    cout << "\n:  print: список всех записей реестра (listBasket)          :";
+    cout << "\n:  removeBasket: удаление всех записей с заданным ключом    :";
     cout << "\n:  find: поиск всех записей с заданным ключом         :";
     cout << "\n:  exit: выход                                        :";
     cout << "\n*******************************************************\n";
@@ -23,13 +23,13 @@ void solution_3_multimap() {
         clearStdin();
         cout << "\nВведите команду: ";
         command = getCommand();
-        if (command == "add") {
+        if (command == "addBasket") {
             data.add();
-        } else if (command == "list" || command == "print") {
+        } else if (command == "listBasket" || command == "print") {
             data.list();
         } else if (command == "find") {
             data.find();
-        } else if (command == "remove") {
+        } else if (command == "removeBasket") {
             data.remove();
         }
     } while(command != "exit");
